@@ -1,3 +1,7 @@
+html, body {
+   height: 100%;
+}
+
 #brand {
   color: white;
   font-family: "Arial";
@@ -13,7 +17,16 @@
   height: 37px;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 10000000;
   padding-left: 40px;
   margin-left: -20px;
 }
+
+#map{
+  margin-top: 37px;
+  margin-left: -10px;
+  padding-right: 18px;
+  width: 100%;
+  height: 100%;
+}
+
