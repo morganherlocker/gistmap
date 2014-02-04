@@ -7,4 +7,21 @@ $(function(){
       attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
   }).addTo(map);
 
+  var repo = window.location.href.split('#')[1]
+  var layers = []
+  $.get('https://api.github.com/repos/'+repo+'/contents/', function(data){
+    for(var file in data){
+      if(data[file].name.indexOf('.geojson') != -1){
+        layers.push(data[file])
+      }
+    }
+
+    for(var layer in layers){
+      var test = 'https://raw2.github.com/'+repo+'/master/'+layers[layer].name
+      $.get('https://raw2.github.com/'+repo+'/master/'+layers[layer].name, function(l){
+        alert(l)
+      })
+    }
+  })
 })
+
