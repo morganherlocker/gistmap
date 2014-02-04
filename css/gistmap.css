@@ -1,0 +1,19 @@
+#brand {
+  color: white;
+  font-family: "Arial";
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 30px;
+}
+
+#header {
+  background-color: black;
+  position: fixed;
+  height: 37px;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  padding-left: 40px;
+  margin-left: -20px;
+}
