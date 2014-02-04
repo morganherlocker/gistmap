@@ -9,19 +9,30 @@ $(function(){
 
   var repo = window.location.href.split('#')[1]
   var layers = []
-  $.get('https://api.github.com/repos/'+repo+'/contents/', function(data){
-    for(var file in data){
-      if(data[file].name.indexOf('.geojson') != -1){
-        layers.push(data[file])
-      }
-    }
 
-    for(var layer in layers){
-      var test = 'https://raw2.github.com/'+repo+'/master/'+layers[layer].name
-      $.get('https://raw2.github.com/'+repo+'/master/'+layers[layer].name, function(l){
-        alert(l)
-      })
+  //var url = 'https://raw2.github.com/'+repo+'/master/'+layers[layer].name
+  url = 'https://api.github.com/gists/c1d73d8e4b23dbabe8ba'
+  $.ajax({
+    url: url,
+    type: 'GET',
+    dataType: 'jsonp'
+  }).success(function(gistData) {
+      for (file in gistData.data.files) {
+        if (gistData.data.files.hasOwnProperty(file)) {
+          var o = JSON.parse(gistData.data.files[file].content);
+          if (o) {
+            layers.push(o);
+          }
+        }
+      }
+      if (layers.length > 0) {
+        for(var layer in layers){
+          L.geoJson(layers[layer]).addTo(map);
+        }
+      }         
+    }).error( function(err) {
+      console.log(err)
     }
-  })
+  );
 })
 
