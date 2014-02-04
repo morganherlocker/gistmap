@@ -27,7 +27,12 @@ $(function(){
       }
       if (layers.length > 0) {
         for(var layer in layers){
-          L.geoJson(layers[layer]).addTo(map);
+          var geojsonLayer = L.geoJson().addTo(map);
+          geojsonLayer.addData(layers[layer]);
+          var bounds = geojsonLayer.getBounds();
+          if (bounds.isValid()) {
+            map.fitBounds(bounds);
+          }
         }
       }         
     }).error( function(err) {
