@@ -1,7 +1,7 @@
 gistmap
 =======
 
-web app that creates an interactive map from a github repo
+gistmap is a web app that creates an interactive map from a gist with geojson files.
 
 
 Use:
