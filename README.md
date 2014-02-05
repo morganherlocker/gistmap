@@ -6,7 +6,7 @@ web app that creates an interactive map from a github repo
 
 Use:
 
-http://morganherlocker.github.io/gistmap/#[gist-id-goes-here]
+    http://morganherlocker.github.io/gistmap/#[gist-id-goes-here]
 
 Example:
 
