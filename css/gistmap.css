@@ -4,6 +4,7 @@ html, body {
   margin: 0;
   padding: 0;
   border: 0;
+  overflow: hidden;
 }
 
 #brand {
@@ -13,13 +14,13 @@ html, body {
   font-style: normal;
   font-size: 30px;
   //line-height: 30px;
-  //padding-left: 75px;
+  padding-left: 75px;
 }
 
 #header {
   background-color: black;
   position: absolute;
-  //height: 37px;
+  height: 38px;
   //top: 10px;
   width: 100%;
   z-index: 10000000;
@@ -29,16 +30,18 @@ html, body {
   //margin-bottom: -40px;
 }
 
+#spacer{
+  height: 30px;
+}
+
+
 #map{
   //padding-top: 37px;
   //margin-left: -10px;
   //padding-right: 15px;
   width: 100%;
   height: 100%;
-}
-
-#spacer{
-  height: 30px;
+  position: absolute;
 }
 
 #mapContainer{
