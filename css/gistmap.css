@@ -8,6 +8,7 @@ html, body {
 }
 
 #brand {
+  min-height: 30px;
   color: white;
   font-family: "Arial";
   font-weight: 400;
@@ -18,20 +19,23 @@ html, body {
 
 #header {
   background-color: black;
-  position: absolute;
+  //position: absolute;
+  min-height: 38px;
   height: 38px;
+  //padding-bottom:38px;
+  //padding-top:38px;
   width: 100%;
   z-index: 10000000;
 }
 
 #spacer{
-  height: 30px;
+  //height: 30px;
 }
 
 
 #map{
   width: 100%;
-  height: 100%;
+  height: 94%;
   position: absolute;
 }
 
