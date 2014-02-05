@@ -11,7 +11,7 @@ $(function(){
   var layers = []
 
   //var url = 'https://raw2.github.com/'+repo+'/master/'+layers[layer].name
-  url = 'https://api.github.com/gists/c1d73d8e4b23dbabe8ba'
+  url = 'https://api.github.com/gists/'+repo
   $.ajax({
     url: url,
     type: 'GET',
@@ -21,11 +21,13 @@ $(function(){
         if (gistData.data.files.hasOwnProperty(file)) {
           var o = JSON.parse(gistData.data.files[file].content);
           if (o) {
+            o.name = gistData.data.files[file].filename.split('.')[0]
             layers.push(o);
           }
         }
       }
       if (layers.length > 0) {
+        var geojsonLayers = {}
         for(var layer in layers){
           var geojsonLayer = L.geoJson().addTo(map);
           geojsonLayer.addData(layers[layer]);
@@ -33,7 +35,10 @@ $(function(){
           if (bounds.isValid()) {
             map.fitBounds(bounds);
           }
+          geojsonLayers[layers[layer].name] = geojsonLayer
         }
+
+        L.control.layers({}, geojsonLayers).addTo(map);
       }         
     }).error( function(err) {
       console.log(err)
